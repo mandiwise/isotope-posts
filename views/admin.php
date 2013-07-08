@@ -274,11 +274,13 @@ if(!class_exists('Isotope_Settings')) {
 				}
 	  
 			} 
-
+			
+			// - add settings error if custom post type is selected but no slug is entered -
 			if ( $input[ 'post_type' ] == 'cpt' && $input[ 'cpt_slug' ] == '' ) {
 				add_settings_error( 'cpt_slug', 'cpt_error', __( 'Please enter a slug for the custom post type you want to display.', 'isotope-posts-locale' ) );
 			}
-
+			
+			// - add settings error if custom taxonomy is selected but no slug is entered -
 			if ( $input[ 'filter_by' ] == 'cust_tax' && $input[ 'tax_slug' ] == '' ) {
 				add_settings_error( 'tax_slug', 'tax_error', __( 'Please enter a slug for the custom taxonomy you want to use for the Filter Menu.', 'isotope-posts-locale' ) );
 			}

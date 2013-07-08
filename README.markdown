@@ -11,6 +11,10 @@ Some features:
 * Grab the post's featured image include with the excerpt (if one is set)
 * Minimal included css makes it easier to customize the look and feel of the loop output for your site
 
+### A Note RE: Licensing
+
+Metafizzy's jQuery Isotope plugin is licensed under MIT and free to use for non-commercial, personal, open-source projects only. Find out more about [commercial licensing](http://isotope.metafizzy.co/docs/license.html) if you plan on using this plugin for commercial purposes.
+
 ## Installation
 
 1. Upload the `isotope-posts` folder and its contents to the `/wp-content/plugins/` directory
@@ -62,7 +66,7 @@ This plugin was originally created by [Mandi Wise](http://mandiwise.com/).
 
 Copyright (c) 2013, Mandi Wise
 
-Isotope Posts is licensed under the GPL v2 or later.
+Isotope Posts is dual licensed under MIT and the GPL v2 or later.
 
 > This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License, version 2, as published by the Free Software Foundation.
 

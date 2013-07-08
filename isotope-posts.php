@@ -6,7 +6,7 @@ Description: This plugin allows you to use Metafizzy's Isotope jQuery plugin to 
 Version: 1.0
 Author: Mandi Wise
 Author URI: http://mandiwise.com/
-License: GPLv2 or later
+License: GPLv2 or later + MIT
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 */
