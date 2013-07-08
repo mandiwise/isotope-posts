@@ -6,7 +6,7 @@
 			<?php settings_fields( 'isotope_options' ); ?>
 			<?php do_settings_sections( 'isotope-options' ); ?>
 			<p class="submit">
-            	<input type="submit" class="button-primary" value="<?php _e('Save Changes', 'isotope-posts-locale') ?>" />
+            	<input type="submit" class="button-primary" value="<?php _e('Save Changes', 'isotope-posts-locale'); ?>" />
             </p>
 		</form>
 </div>

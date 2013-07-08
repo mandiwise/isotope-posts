@@ -29,7 +29,7 @@ class IsotopePosts {
 		add_action( 'wp_enqueue_scripts', array( $this, 'register_plugin_scripts' ) );
 
 		// - add the settings sub-menu -
-		require_once(sprintf("%s/views/admin.php", dirname(__FILE__)));
+		require_once( sprintf( '%s/views/admin.php', dirname(__FILE__) ) );
 		$Isotope_Settings = new Isotope_Settings();
 		
 		// - register the shortcode -
@@ -65,7 +65,7 @@ class IsotopePosts {
 	// * Core Functions *
 	
 	// - create the isotope shortcode, enqueues the scripts, and queries the db for posts -
-	function isotope_loop() {
+	public function isotope_loop() {
 		
 		// - grab the plugin's saved settings -
 		$posttype = isotope_option( 'post_type' );
@@ -76,19 +76,17 @@ class IsotopePosts {
 		$layout = isotope_option( 'layout' );
 		$sortby = isotope_option( 'sort_by' );
 		
-		if ( $posttype == 'post' ) {
+		if ( $posttype == 'post' )
 			$type = 'post';
-		} else {
-			$type = $cptslug; 
-		}
+		else
+			$type = $cptslug;
 		
-		if ( $filterby == 'category' ) {
+		if ( $filterby == 'category' )
 			$meta = 'category';
-		} elseif ( $filterby == 'post_tag' ) {
+		elseif ( $filterby == 'post_tag' )
 			$meta = 'post_tag';
-		} else {
+		else
 			$meta = $taxslug; 
-		}
 		
 		wp_enqueue_script( 'jquery-isotope-script' );
 		wp_enqueue_script( 'isotope-posts-plugin-script' );
@@ -100,14 +98,14 @@ class IsotopePosts {
 		
 		$args = array(
 			'post_type' => $type,
-			'posts_per_page=' => '-1'
+			'posts_per_page' => '-1'
 		);
 		$isoposts = new WP_Query( $args );
 
 		ob_start();
 
 		// - create the filter menu option is selected -
-		if ( $menu == 'yes' ) {			
+		if ( $menu == 'yes' && taxonomy_exists( $meta ) ) {			
 			$terms = get_terms( $meta );
 			$count = count( $terms );
 				if ( $count > 0 ){
@@ -119,26 +117,27 @@ class IsotopePosts {
 				echo '</ul>';
 				echo '<div style="clear:both;"></div>';
 			}
-		}	
-		?>
-			
-		<ul id="iso-loop">
-		<?php while ($isoposts->have_posts()) : $isoposts->the_post(); ?>
-			<li class="<?php foreach( get_the_terms( $isoposts->post->ID, $meta ) as $term ) echo $term->slug.' '; ?>iso-post">
-				<h2 class="iso-title"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
-				<?php
-					if ( '' != get_the_post_thumbnail() ) { ?>
-						<div class="iso-thumb">
-							<a href="<?php the_permalink() ?>"><?php the_post_thumbnail(); ?></a>
-						</div>
-					<?php }
-				?>
-				<?php the_excerpt(); ?>
-			</li>
-		<?php endwhile; ?>
-		</ul>
+		}
 		
+		if ( post_type_exists( $type ) ) {
+		?>
+			<ul id="iso-loop">
+			<?php while ($isoposts->have_posts()) : $isoposts->the_post(); ?>
+				<li class="<?php foreach( get_the_terms( $isoposts->post->ID, $meta ) as $term ) echo $term->slug.' '; ?>iso-post">
+					<h2 class="iso-title"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
+					<?php
+						if ( '' != get_the_post_thumbnail() ) { ?>
+							<div class="iso-thumb">
+								<a href="<?php the_permalink() ?>"><?php the_post_thumbnail(); ?></a>
+							</div>
+						<?php }
+					?>
+					<?php the_excerpt(); ?>
+				</li>
+			<?php endwhile; ?>
+			</ul>
 		<?php
+		}
 		
 		wp_reset_postdata();
 		
@@ -149,7 +148,7 @@ class IsotopePosts {
 	}
 	
 	// - register the shortcode "[isotope-posts]" -
-	function register_shortcode() {
+	public function register_shortcode() {
 		add_shortcode( 'isotope-posts', array( $this, 'isotope_loop' ) );
 	}
 
