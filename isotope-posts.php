@@ -3,7 +3,7 @@
 Plugin Name: Isotope Posts
 Plugin URI: http://mandiwise.com/wordpress/isotope-posts/
 Description: This plugin allows you to use Metafizzy's Isotope jQuery plugin to display a feed of WordPress posts with a simple shortcode. Works with custom post types and custom taxonomies too.
-Version: 1.0
+Version: 1.1
 Author: Mandi Wise
 Author URI: http://mandiwise.com/
 License: GPLv2 or later + MIT
@@ -70,24 +70,20 @@ class IsotopePosts {
 		// - grab the plugin's saved settings -
 		$posttype = isotope_option( 'post_type' );
 		$cptslug = isotope_option( 'cpt_slug' );
+		
+		$limit = isotope_option( 'limit_posts' );
+		$limitby = isotope_option( 'limit_by');
+		$limittax = isotope_option( 'limit_tax' );
+		$limitterm = isotope_option( 'limit_term' );
+		
 		$menu = isotope_option( 'filter_menu' );
 		$filterby = isotope_option( 'filter_by');
-		$taxslug = isotope_option( 'tax_slug' );
+		$filtertax = isotope_option( 'filter_tax' );
+		
 		$layout = isotope_option( 'layout' );
 		$sortby = isotope_option( 'sort_by' );
 		
-		if ( $posttype == 'post' )
-			$type = 'post';
-		else
-			$type = $cptslug;
-		
-		if ( $filterby == 'category' )
-			$meta = 'category';
-		elseif ( $filterby == 'post_tag' )
-			$meta = 'post_tag';
-		else
-			$meta = $taxslug; 
-		
+		// - enqueue and localize the Isotope scripts -
 		wp_enqueue_script( 'jquery-isotope-script' );
 		wp_enqueue_script( 'isotope-posts-plugin-script' );
 		wp_localize_script( 'isotope-posts-plugin-script', 'iso_vars', array(
@@ -96,17 +92,44 @@ class IsotopePosts {
 			) 
 		);
 		
+		// - set the post type to display with Isotope -
+		if ( $posttype == 'post' )
+			$type = 'post';
+		else
+			$type = $cptslug;
+		
+		// - set the taxonomy for the filter menu -
+		if ( $filterby == 'category' )
+			$menutax = 'category';
+		elseif ( $filterby == 'post_tag' )
+			$menutax = 'post_tag';
+		else
+			$menutax = $filtertax; 
+		
+		// - set the query args -
 		$args = array(
 			'post_type' => $type,
 			'posts_per_page' => '-1'
 		);
+		
+		if ( $limit == 'yes' && taxonomy_exists( $limittax ) ) {
+			$limitedterms = explode( ',', $limitterm );
+			$args['tax_query'] = array(
+				array (
+					'taxonomy' => $limittax,
+					'field' => 'slug',
+					'terms' => $limitedterms
+				)
+			);
+		}
+		
 		$isoposts = new WP_Query( $args );
 
 		ob_start();
 
 		// - create the filter menu option is selected -
-		if ( $menu == 'yes' && taxonomy_exists( $meta ) ) {			
-			$terms = get_terms( $meta );
+		if ( $menu == 'yes' && taxonomy_exists( $menutax ) ) {			
+			$terms = get_terms( $menutax );
 			$count = count( $terms );
 				if ( $count > 0 ){
 					echo '<ul id="filters">';
@@ -123,7 +146,7 @@ class IsotopePosts {
 		?>
 			<ul id="iso-loop">
 			<?php while ($isoposts->have_posts()) : $isoposts->the_post(); ?>
-				<li class="<?php foreach( get_the_terms( $isoposts->post->ID, $meta ) as $term ) echo $term->slug.' '; ?>iso-post">
+				<li class="<?php foreach( get_the_terms( $isoposts->post->ID, $menutax ) as $term ) echo $term->slug.' '; ?>iso-post">
 					<h2 class="iso-title"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
 					<?php
 						if ( '' != get_the_post_thumbnail() ) { ?>

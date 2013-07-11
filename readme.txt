@@ -2,8 +2,7 @@
 Contributors: mandiwise
 Tags: isotope, jquery, posts
 Requires at least: 3.5.1
-Tested up to: 3.5.1
-Stable tag: 1.0
+Tested up to: 3.5.2
 
 This plugin allows you to use Metafizzy's Isotope jQuery plugin to display a feed of WordPress posts with a simple shortcode. Works with custom post types and custom taxonomies too.
 
@@ -56,6 +55,10 @@ Yes, but no translations are available quite yet.
 2. Sample of featured image and excerpt output
 
 == Changelog ==
+
+= 1.1 =
+* Added ability to limit post display to specific taxonomy and terms.
+* Light code refactoring.
 
 = 1.0 =
 * Initial plugin release.

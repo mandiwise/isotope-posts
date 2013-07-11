@@ -135,7 +135,8 @@ if(!class_exists('Isotope_Settings')) {
 		
 		// - define all the plugin settings and their defaults -
 		public function isoset_get_settings() {
-		
+			
+			// - what post type to display? -
 			$this->settings['post_type'] = array(
 				'section' => 'general',
 				'title'   => __( 'Post Type', 'isotope-posts-locale' ),
@@ -143,52 +144,96 @@ if(!class_exists('Isotope_Settings')) {
 				'type'    => 'select',
 				'std'     => 'post',
 				'choices' => array(
-					'post' => __('WordPress Posts', 'isotope-posts-locale'),
-					'cpt' => __('Custom Post Type', 'isotope-posts-locale')
+					'post' => __( 'WordPress Posts', 'isotope-posts-locale' ),
+					'cpt' => __( 'Custom Post Type', 'isotope-posts-locale' )
 				)
 			);
 		
 			$this->settings['cpt_slug'] = array(
+				'section' => 'general',
 				'title'   => __( 'Custom Post Type Slug', 'isotope-posts-locale' ),
-				'desc'    => __( 'Enter the slug of the custom post type you want to use (e.g. movies).', 'isotope-posts-locale' ),
+				'desc'    => __( 'Enter the slug of the custom post type you want to use (e.g. "movies").', 'isotope-posts-locale' ),
 				'std'     => '',
-				'type'    => 'text',
-				'section' => 'general'
+				'type'    => 'text'
 			);
 			
-			$this->settings['filter_menu'] = array(
+			// - limit by taxonomy term? -
+			$this->settings['limit_posts'] = array(
 				'section' => 'general',
-				'title'   => __( 'Add Filter Menu', 'isotope-posts-locale' ),
-				'desc'    => __( 'Include a taxonomy-based menu for users to filter posts.', 'isotope-posts-locale' ),
+				'title'   => __( 'Limit Post Display', 'isotope-posts-locale' ),
+				'desc'    => __( 'Only show posts that have a specific category, tag, or taxonomy term?', 'isotope-posts-locale' ),
 				'type'    => 'select',
 				'std'     => 'no',
 				'choices' => array(
-					'yes' => __('Yes', 'isotope-posts-locale'),
-					'no' => __('No', 'isotope-posts-locale')
+					'no' => __( 'No, show all the posts from the above post type', 'isotope-posts-locale' ),
+					'yes' => __( 'Yes, limit the posts by specific taxomony term(s)', 'isotope-posts-locale' )
+				)
+			);
+
+			$this->settings['limit_by'] = array(
+				'section' => 'general',
+				'title'   => __( 'Limiting Taxonomy', 'isotope-posts-locale' ),
+				'desc'    => __( 'Choose a taxonomy to limit what posts are displayed.', 'isotope-posts-locale' ),
+				'type'    => 'select',
+				'std'     => 'category',
+				'choices' => array(
+					'category' => __( 'Post Categories', 'isotope-posts-locale' ),
+					'post_tag' => __( 'Post Tags', 'isotope-posts-locale' ),
+					'cust_tax' => __( 'Custom Taxonomy', 'isotope-posts-locale' )
+				)
+			);
+			
+			$this->settings['limit_tax'] = array(
+				'section' => 'general',
+				'title'   => __( 'Custom Taxonomy Slug', 'isotope-posts-locale' ),
+				'desc'    => __( 'Enter the slug of the custom taxonomy that will limit what posts are displayed (e.g. "genre").', 'isotope-posts-locale' ),
+				'std'     => '',
+				'type'    => 'text'
+			);
+
+			$this->settings['limit_term'] = array(
+				'section' => 'general',
+				'title'   => __( 'Term Slug(s)', 'isotope-posts-locale' ),
+				'desc'    => __( 'Enter the term slug that will limit what\'s displayed. Seperate multiple terms with commas (e.g. "comedy,thriller").', 'isotope-posts-locale' ),
+				'std'     => '',
+				'type'    => 'text'
+			);
+			
+			// - show a filter menu? -
+			$this->settings['filter_menu'] = array(
+				'section' => 'general',
+				'title'   => __( 'Add Filter Menu', 'isotope-posts-locale' ),
+				'desc'    => __( 'Include a taxonomy-based menu for users to filter posts?', 'isotope-posts-locale' ),
+				'type'    => 'select',
+				'std'     => 'no',
+				'choices' => array(
+					'no' => __( 'No', 'isotope-posts-locale' ),
+					'yes' => __( 'Yes', 'isotope-posts-locale' )
 				)
 			);
 			
 			$this->settings['filter_by'] = array(
 				'section' => 'general',
-				'title'   => __( 'Filter Taxonomy', 'isotope-posts-locale' ),
-				'desc'    => __( 'Choose a taxonomy to filter the posts.', 'isotope-posts-locale' ),
+				'title'   => __( 'Filter Menu Taxonomy', 'isotope-posts-locale' ),
+				'desc'    => __( 'Choose a taxonomy for the menu that will allow users to filter the posts.', 'isotope-posts-locale' ),
 				'type'    => 'select',
 				'std'     => 'category',
 				'choices' => array(
-					'category' => __('Post Categories', 'isotope-posts-locale'),
-					'post_tag' => __('Post Tags', 'isotope-posts-locale'),
-					'cust_tax' => __('Custom Taxonomy', 'isotope-posts-locale')
+					'category' => __( 'Post Categories', 'isotope-posts-locale' ),
+					'post_tag' => __( 'Post Tags', 'isotope-posts-locale' ),
+					'cust_tax' => __( 'Custom Taxonomy', 'isotope-posts-locale' )
 				)
 			);
 			
-			$this->settings['tax_slug'] = array(
+			$this->settings['filter_tax'] = array(
+				'section' => 'general',
 				'title'   => __( 'Custom Taxonomy Slug', 'isotope-posts-locale' ),
-				'desc'    => __( 'Enter the slug of the custom taxonomy you want to use (e.g. genre).', 'isotope-posts-locale' ),
+				'desc'    => __( 'Enter the slug of the custom taxonomy you want to use for the filter menu (e.g. "directors").', 'isotope-posts-locale' ),
 				'std'     => '',
-				'type'    => 'text',
-				'section' => 'general'
+				'type'    => 'text'
 			);
 			
+			// - customize isotope display? -
 			$this->settings['layout'] = array(
 				'section' => 'general',
 				'title'   => __( 'Layout', 'isotope-posts-locale' ),
@@ -196,20 +241,20 @@ if(!class_exists('Isotope_Settings')) {
 				'type'    => 'select',
 				'std'     => 'fitRows',
 				'choices' => array(
-					'fitRows' => __('Left to right in rows', 'isotope-posts-locale'),
-					'masonry' => __('Fit masonry-style', 'isotope-posts-locale')
+					'fitRows' => __( 'Left to right in rows', 'isotope-posts-locale' ),
+					'masonry' => __( 'Fit masonry-style', 'isotope-posts-locale' )
 				)
 			);
 			
 			$this->settings['sort_by'] = array(
 				'section' => 'general',
-				'title'   => __( 'Sorting', 'isotope-posts-locale' ),
+				'title'   => __( 'Sort Order', 'isotope-posts-locale' ),
 				//'desc'    => __( 'This is a description for the drop-down.', 'isotope-posts-locale' ),
 				'type'    => 'select',
 				'std'     => 'original-order',
 				'choices' => array(
-					'original-order' => __('Descending by date', 'isotope-posts-locale'),
-					'name' => __('Ascending alphabetically', 'isotope-posts-locale')
+					'original-order' => __( 'Descending by publish date', 'isotope-posts-locale' ),
+					'name' => __( 'Ascending alphabetically', 'isotope-posts-locale' )
 				)
 			);
 		
@@ -241,8 +286,8 @@ if(!class_exists('Isotope_Settings')) {
 			foreach ( $this->settings as $id => $setting ) {
 				$setting['id'] = $id;
 				$this->isoset_create_setting( $setting );
-		
 			}
+			
 		}
 		
 		// - add the submenu page -
@@ -280,9 +325,19 @@ if(!class_exists('Isotope_Settings')) {
 				add_settings_error( 'cpt_slug', 'cpt_error', __( 'Please enter a slug for the custom post type you want to display.', 'isotope-posts-locale' ) );
 			}
 			
-			// - add settings error if custom taxonomy is selected but no slug is entered -
-			if ( $input[ 'filter_by' ] == 'cust_tax' && $input[ 'tax_slug' ] == '' ) {
-				add_settings_error( 'tax_slug', 'tax_error', __( 'Please enter a slug for the custom taxonomy you want to use for the Filter Menu.', 'isotope-posts-locale' ) );
+			// - add settings error if custom taxonomy is selected to limit post display but no slug is entered -
+			if ( $input[ 'limit_by' ] == 'cust_tax' && $input[ 'limit_tax' ] == '' ) {
+				add_settings_error( 'limit_tax', 'filter_error', __( 'Please enter a slug for the custom taxonomy you want to use to limit what posts are displayed.', 'isotope-posts-locale' ) );
+			}
+			
+			// - add settings error if the user wants to limit the post display by taxonomy terms but no terms are entered -
+			if ( $input[ 'limit_posts' ] == 'yes' && $input[ 'limit_term' ] == '' ) {
+				add_settings_error( 'limit_term', 'filter_error', __( 'Please enter at least one term slug to limit what posts are displayed.', 'isotope-posts-locale' ) );
+			}
+			
+			// - add settings error if custom taxonomy is selected for the filter menu but no slug is entered -
+			if ( $input[ 'filter_by' ] == 'cust_tax' && $input[ 'filter_tax' ] == '' ) {
+				add_settings_error( 'filter_tax', 'filter_error', __( 'Please enter a slug for the custom taxonomy you want to use for the Filter Menu.', 'isotope-posts-locale' ) );
 			}
 
 			return apply_filters( 'isoset_validate_settings', $output, $input ); 

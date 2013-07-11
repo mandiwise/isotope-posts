@@ -50,6 +50,10 @@ Yes, but no translations are available quite yet.
 
 ## Changelog
 
+### 1.1
+* Added ability to limit post display to specific taxonomy and terms.
+* Light code refactoring.
+
 ### 1.0
 * Plugin initial release.
 
