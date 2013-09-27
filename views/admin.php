@@ -194,7 +194,7 @@ if(!class_exists('Isotope_Settings')) {
 			$this->settings['limit_term'] = array(
 				'section' => 'general',
 				'title'   => __( 'Term Slug(s)', 'isotope-posts-locale' ),
-				'desc'    => __( 'Enter the term slug that will limit what\'s displayed. Seperate multiple terms with commas (e.g. "comedy,thriller").', 'isotope-posts-locale' ),
+				'desc'    => __( 'Enter the term slugs that should NOT be displayed. Seperate multiple terms with commas (e.g. "comedy,thriller").', 'isotope-posts-locale' ),
 				'std'     => '',
 				'type'    => 'text'
 			);

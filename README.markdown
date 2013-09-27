@@ -8,6 +8,7 @@ Some features:
 
 * No need to muck around with javascript or theme files – implement Isotope directly in the WordPress editor with a simple shortcode!
 * Includes essential Isotope features, including the option for a filter menu, sorting options, and layout options
+* Hide posts from displaying based on category, post tag, or custom taxonomy terms
 * Grab the post's featured image include with the excerpt (if one is set)
 * Minimal included css makes it easier to customize the look and feel of the loop output for your site
 
@@ -17,9 +18,10 @@ Metafizzy's jQuery Isotope plugin is licensed under MIT and free to use for non-
 
 ## Installation
 
-1. Upload the `isotope-posts` folder and its contents to the `/wp-content/plugins/` directory
-2. Activate the plugin through the 'Plugins' menu in WordPress
-3. Go to the Settings > Isotope Posts page and adjust the settings as needed.
+1. Extract the `isotope-posts-master.zip` and remove `-master` from the extracted directory name
+2. Upload the `isotope-posts` folder and its contents to the `/wp-content/plugins/` directory
+3. Activate the plugin through the 'Plugins' menu in WordPress
+4. Go to the Settings > Isotope Posts page and adjust the settings as needed.
 
 ## Frequently Asked Questions
 
@@ -49,6 +51,12 @@ Yes, but no translations are available quite yet.
 2. Sample of featured image and excerpt output
 
 ## Changelog
+
+### 1.1.1
+* Fixed bug when trying to limit post display by category or post tag.
+* Changed filter menu to automatically remove user-excluded terms if the selected menu taxonomy is the same as the limiting taxonomy.
+* Reversed "Limiting Taxonomy" logic so that entered terms slugs are excluded from display (as opposed to the only terms displayed).
+* More code refactoring.
 
 ### 1.1
 * Added ability to limit post display to specific taxonomy and terms.
