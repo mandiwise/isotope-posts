@@ -292,7 +292,8 @@ if(!class_exists('Isotope_Settings')) {
 		
 		// - add the submenu page -
 		public function isoset_add_submenu() { 
-			add_options_page( __('Isotope Posts', 'isotope-posts-locale'),  __('Isotope Posts', 'isotope-posts-locale'), 'manage_options', 'isotope-options', array(&$this, 'isoset_plugin_settings_page') );
+			global $isotope_posts_settings_page;
+			$isotope_posts_settings_page = add_options_page( __('Isotope Posts', 'isotope-posts-locale'),  __('Isotope Posts', 'isotope-posts-locale'), 'manage_options', 'isotope-options', array(&$this, 'isoset_plugin_settings_page') );
 		}
 		
 		// - create the callback for the submenu page and restrict access to it -

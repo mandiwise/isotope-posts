@@ -52,6 +52,10 @@ Yes, but no translations are available quite yet.
 
 ## Changelog
 
+### 1.1.2
+* Added else condition to handle post loop with no results
+* Updated call to admin.js file so it only loads where needed
+
 ### 1.1.1
 * Fixed bug when trying to limit post display by category or post tag.
 * Changed filter menu to automatically remove user-excluded terms if the selected menu taxonomy is the same as the limiting taxonomy.

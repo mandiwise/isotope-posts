@@ -46,7 +46,11 @@ class IsotopePosts {
 	}
 
 	// * Registers and enqueues admin-specific javascript *
-	public function register_admin_scripts() {
+	public function register_admin_scripts( $hook ) {
+		global $isotope_posts_settings_page;
+		if ( $hook != $isotope_posts_settings_page ) 
+			return;
+			
 		wp_enqueue_script( 'isotope-posts-admin-script', plugins_url( 'isotope-posts/js/admin.js' ), array('jquery') );
 	}
 
@@ -169,8 +173,7 @@ class IsotopePosts {
 		}
 		
 		// - start the post loop if the post type exists -
-		if ( post_type_exists( $post_type ) ) {
-		?>
+		if ( post_type_exists( $post_type ) && $isoposts->have_posts() ) : ?>
 			<ul id="iso-loop">
 			<?php while ($isoposts->have_posts()) : $isoposts->the_post(); ?>
 				<li class="<?php foreach( get_the_terms( $isoposts->post->ID, $menu_tax ) as $term ) echo $term->slug.' '; ?>iso-post">
@@ -187,13 +190,16 @@ class IsotopePosts {
 			<?php endwhile; ?>
 			</ul>
 		<?php
-		}
 		
-		wp_reset_postdata();
+			wp_reset_postdata();
 		
-		$content = ob_get_contents();
-		ob_end_clean();
-		return $content;
+			$content = ob_get_contents();
+			ob_end_clean();
+			return $content;
+		
+		else: ?>
+			<p>Nothing found. Please check back soon!</p>
+		<?php endif;
 
 	}
 	
