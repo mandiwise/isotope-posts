@@ -3,7 +3,7 @@
 Plugin Name: Isotope Posts
 Plugin URI: http://mandiwise.com/wordpress/isotope-posts/
 Description: This plugin allows you to use Metafizzy's Isotope jQuery plugin to display a feed of WordPress posts with a simple shortcode. Works with custom post types and custom taxonomies too.
-Version: 1.1.2
+Version: 1.1.3
 Author: Mandi Wise
 Author URI: http://mandiwise.com/
 License: GPLv2 or later + MIT
@@ -175,8 +175,8 @@ class IsotopePosts {
 		// - start the post loop if the post type exists -
 		if ( post_type_exists( $post_type ) && $isoposts->have_posts() ) : ?>
 			<ul id="iso-loop">
-			<?php while ($isoposts->have_posts()) : $isoposts->the_post(); ?>
-				<li class="<?php foreach( get_the_terms( $isoposts->post->ID, $menu_tax ) as $term ) echo $term->slug.' '; ?>iso-post">
+			<?php while ( $isoposts->have_posts() ) : $isoposts->the_post(); ?>
+				<li class="<?php if ( $filter_menu == 'yes' && taxonomy_exists( $menu_tax ) ) { foreach( get_the_terms( $isoposts->post->ID, $menu_tax ) as $term ) echo $term->slug.' '; } ?>iso-post">
 					<h2 class="iso-title"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
 					<?php
 						if ( '' != get_the_post_thumbnail() ) { ?>

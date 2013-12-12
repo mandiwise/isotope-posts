@@ -58,6 +58,9 @@ Yes, but no translations are available quite yet.
 
 == Changelog ==
 
+= 1.1.3 =
+* Made taxonomy classes conditional on loop items to stop php warning when not using a filter menu (props [@jengalas](https://github.com/jengalas)).
+
 = 1.1.2 =
 * Added else condition to handle post loop with no results
 * Updated call to admin.js file so it only loads where needed
