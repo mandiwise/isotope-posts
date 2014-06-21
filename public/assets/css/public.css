@@ -1,3 +1,5 @@
+/* This stylesheet is used to style the public-facing components of the plugin. */
+
 /* START: Recommended Isotope styles */
 
 /* Isotope filtering */
@@ -54,23 +56,31 @@
 
 /* Plugin-specific styles */
 
-ul#filters, 
-ul#iso-loop {
+#filters {
 	list-style: none;
 }
 
-ul#filters li {
+#filters li {
 	float: left;
 	border: 1px solid #ededed;
 	margin: 0 0.5em 1em 0;
 }
 
-ul#filters li a {
+#filters li a {
 	text-decoration: none;
 	padding: 0.5em 1em;
 }
 
-ul#iso-loop li {
+.iso-container {
+   clear: both;
+}
+
+#iso-loop {
+   display: none;
+   list-style: none;
+}
+
+#iso-loop li {
 	margin: 0;
 	padding: 0 15px;
 	max-width: 290px;
@@ -94,5 +104,20 @@ h2.iso-title a {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
-	box-shadow: none !important;
+}
+
+.more-iso-posts {
+   display: none;
+}
+
+.iso-posts-loading {
+   margin: 0 auto;
+   text-align: center;
+}
+
+.iso-posts-loading img {
+   display: block;
+   margin: 0 auto;
+   box-shadow: none !important;
+   border: 0;
 }

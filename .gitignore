@@ -1,0 +1,31 @@
+# WORDPRESS GITIGNORE #
+
+# Ignore OS files #
+# =============== #
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+*[Tt]humbs.db
+*.Trashes
+
+# Ignore logs and databases #
+# ========================= #
+*.log
+*.sql
+*.sqlite
+error_log
+access_log
+
+# Ignore packages #
+# =============== #
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip

@@ -1,0 +1,261 @@
+# Copyright (C) 2014 Mandi Wise
+# This file is distributed under the same license as the Isotope Posts package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Isotope Posts 2.0.0\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/plugins/plugin-name\n"
+"POT-Creation-Date: 2014-06-20 12:21-0800\n"
+"PO-Revision-Date: 2014-06-20 12:21-0800\n"
+"Last-Translator: FULL NAME <email@example.com>\n"
+"Language-Team: LANGUAGE <translations@example.com >\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.5\n"
+"X-Poedit-KeywordsList: __;_e;_n;_x;esc_html_e;esc_html__;esc_attr_e;"
+"esc_attr__;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_x:1,2c;_n:1,2\n"
+"X-Poedit-Basepath: ../\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: admin/class-isotope-posts-admin.php:128
+#: admin/class-isotope-posts-admin.php:129
+msgid "Isotope Posts"
+msgstr ""
+
+#: admin/class-isotope-posts-admin.php:145
+msgid "Sorry! You don't have sufficient permissions to access this page."
+msgstr ""
+
+#: admin/class-isotope-posts-admin.php:160
+msgid "Settings"
+msgstr ""
+
+#: admin/views/admin.php:28
+msgid "Here are the Isotope Posts shortcodes you've saved so far:"
+msgstr ""
+
+#: admin/views/admin.php:33 admin/views/settings.php:209
+msgid "Post Type"
+msgstr ""
+
+#: admin/views/admin.php:34
+msgid "Filter Menu"
+msgstr ""
+
+#: admin/views/admin.php:35
+msgid "Excluded Terms"
+msgstr ""
+
+#: admin/views/admin.php:36
+msgid "Layout / Order"
+msgstr ""
+
+#: admin/views/admin.php:37
+msgid "Shortcode"
+msgstr ""
+
+#: admin/views/admin.php:46 admin/views/admin.php:47 admin/views/admin.php:48
+msgid "N/A"
+msgstr ""
+
+#: admin/views/admin.php:49
+msgid "In Rows"
+msgstr ""
+
+#: admin/views/admin.php:49
+msgid "Masonry"
+msgstr ""
+
+#: admin/views/admin.php:50
+msgid "Date"
+msgstr ""
+
+#: admin/views/admin.php:50
+msgid "Alpha"
+msgstr ""
+
+#: admin/views/admin.php:59
+msgid "Edit"
+msgstr ""
+
+#: admin/views/admin.php:60
+msgid "Delete"
+msgstr ""
+
+#: admin/views/admin.php:69
+msgid ""
+"Looks like you haven't created any shortcodes to display post loops yet."
+msgstr ""
+
+#: admin/views/admin.php:73
+msgid "Create a Shortcode"
+msgstr ""
+
+#: admin/views/admin.php:83
+msgid "Save Shortcode"
+msgstr ""
+
+#: admin/views/settings.php:33
+msgid "Isotope Display Options"
+msgstr ""
+
+#: admin/views/settings.php:45
+msgid "Default Field"
+msgstr ""
+
+#: admin/views/settings.php:200
+msgid "Shortcode ID"
+msgstr ""
+
+#: admin/views/settings.php:201
+msgid ""
+"Enter a unique ID for this post loop (no spaces). A random ID will be "
+"assigned if one isn't provided."
+msgstr ""
+
+#: admin/views/settings.php:210
+msgid "Choose what kind of posts to display with Isotope."
+msgstr ""
+
+#: admin/views/settings.php:219
+msgid "Limit Post Display"
+msgstr ""
+
+#: admin/views/settings.php:220
+msgid "Only show posts that have a specific category, tag, or taxonomy term?"
+msgstr ""
+
+#: admin/views/settings.php:224
+msgid "No, include all the posts from the above post type"
+msgstr ""
+
+#: admin/views/settings.php:225
+msgid "Yes, limit the posts by specific taxomony term(s)"
+msgstr ""
+
+#: admin/views/settings.php:231
+msgid "Limiting Taxonomy"
+msgstr ""
+
+#: admin/views/settings.php:232
+msgid "Choose a taxonomy to limit what posts are displayed."
+msgstr ""
+
+#: admin/views/settings.php:240
+msgid "Term Slug(s)"
+msgstr ""
+
+#: admin/views/settings.php:241
+msgid ""
+"Enter the taxonomy term slugs for posts that should NOT be displayed. "
+"Seperate multiple terms with commas (e.g. \"comedy, thriller\")."
+msgstr ""
+
+#: admin/views/settings.php:249
+msgid "Add Filter Menu"
+msgstr ""
+
+#: admin/views/settings.php:250
+msgid "Include a taxonomy-based menu for users to filter posts?"
+msgstr ""
+
+#: admin/views/settings.php:254
+msgid "No"
+msgstr ""
+
+#: admin/views/settings.php:255
+msgid "Yes"
+msgstr ""
+
+#: admin/views/settings.php:261
+msgid "Filter Menu Taxonomy"
+msgstr ""
+
+#: admin/views/settings.php:262
+msgid ""
+"Choose a taxonomy for the menu that will allow users to filter the posts."
+msgstr ""
+
+#: admin/views/settings.php:271
+msgid "Pagination"
+msgstr ""
+
+#: admin/views/settings.php:272
+msgid "Paginate this loop and add more posts with infinite scroll?"
+msgstr ""
+
+#: admin/views/settings.php:276
+msgid "No, display all available posts at once"
+msgstr ""
+
+#: admin/views/settings.php:277
+msgid "Yes, paginate the post loop with infinite scroll"
+msgstr ""
+
+#: admin/views/settings.php:283
+msgid "Posts Per Load"
+msgstr ""
+
+#: admin/views/settings.php:284
+msgid "How many posts should be loaded at a time?"
+msgstr ""
+
+#: admin/views/settings.php:292
+msgid "Finished Message"
+msgstr ""
+
+#: admin/views/settings.php:293
+msgid "Display a message when all of the posts have loaded?"
+msgstr ""
+
+#: admin/views/settings.php:301
+msgid "Layout"
+msgstr ""
+
+#: admin/views/settings.php:306
+msgid "Left to right in rows"
+msgstr ""
+
+#: admin/views/settings.php:307
+msgid "Fit masonry-style"
+msgstr ""
+
+#: admin/views/settings.php:313
+msgid "Sort Order"
+msgstr ""
+
+#: admin/views/settings.php:318
+msgid "Descending by publish date"
+msgstr ""
+
+#: admin/views/settings.php:319
+msgid "Ascending alphabetically"
+msgstr ""
+
+#: admin/views/settings.php:327
+msgid ""
+"Use these options to customize the output of WordPress posts using an "
+"Isotope Post shortcode:"
+msgstr ""
+
+#: admin/views/settings.php:397
+msgid ""
+"Please choose a taxonomy that contains the terms to limit the post display."
+msgstr ""
+
+#: admin/views/settings.php:402
+msgid "Please enter at least one term slug to limit what posts are displayed."
+msgstr ""
+
+#: admin/views/settings.php:407
+msgid "Please choose a taxonomy that will be used to create the filter menu."
+msgstr ""
+
+#: admin/views/settings.php:412
+msgid "Please select how many posts to load at a time with infinite scroll."
+msgstr ""
+
+#: public/class-isotope-posts.php:382
+msgid "See All"
+msgstr ""
