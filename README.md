@@ -50,7 +50,7 @@ Isotope Posts takes advantage of a number of the original javascript plugins's o
 
 ### Does this plugin work with custom post types and taxonomies?
 
-Absolutely. To use a custom post type, simply add its slug to the designated field on the plugin settings page. Same goes for using a custom taxonomy for a filter menu.
+Absolutely. To use a custom post type, simply pick it from the select menu on the plugin settings page. Same goes for using a custom taxonomy for a filter menu.
 
 ### Why do things get weird when I try to add a filter menu and use infinite scrolling?
 
