@@ -176,7 +176,7 @@ class Isotope_Posts_Admin {
          die();
 
       $loop_id = isset( $_POST['loop_id'] ) ? $_POST['loop_id'] : null;
-      $isotope_loops = !empty( get_option('isotope_options') ) ? get_option( 'isotope_options' ) : array();
+      $isotope_loops = ( get_option('isotope_options') != false ) ? get_option( 'isotope_options' ) : array();
 
       // Check for the loop ID in the plugin options (deletion occurs in validation callback)
       if ( $loop_id && $isotope_loops && array_key_exists( $loop_id, $isotope_loops ) ) {

@@ -360,7 +360,7 @@ if ( !class_exists( 'Isotope_Posts_Settings' ) ) {
          $loop_id = isset( $_POST['loop_id'] ) ? $_POST['loop_id'] : null;
 
          // Check if any options already exist
-         $isotope_loops = !empty( get_option('isotope_options') ) ? get_option( 'isotope_options' ) : array();
+         $isotope_loops = ( get_option( 'isotope_options' ) != false ) ? get_option( 'isotope_options' ) : array();
 
          if ( $save_flag == 'delete' ) {
 

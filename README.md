@@ -74,6 +74,9 @@ Yes, but no translations are available quite yet.
 
 ## Changelog
 
+### 2.0.1
+* Fixed fatal error on activation
+
 ### 2.0
 * Refactored all plugin code
 * Revamped the plugin settings page to allow users to save multiple post loops (this is a breaking change)

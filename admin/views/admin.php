@@ -16,14 +16,14 @@
 
    <?php
       // Check for existing loops to display
-      $isotope_loops = !empty( get_option('isotope_options') ) ? get_option( 'isotope_options' ) : array();
+      $isotope_loops = ( get_option('isotope_options') != false ) ? get_option( 'isotope_options' ) : array();
    ?>
 
    <div id="isotope-loops">
 
       <h3>Isotope Post Shortcodes</h3>
 
-      <?php if ( !empty( $isotope_loops ) ) : ?>
+      <?php if ( $isotope_loops ) : ?>
 
          <p><?php _e( 'Here are the Isotope Posts shortcodes you\'ve saved so far:', $this->plugin_slug ); ?></p>
 
