@@ -12,11 +12,16 @@ Some features:
 * Grab the post's featured image include with the excerpt (if one is set)
 * Minimal included css makes it easier to customize the look and feel of the loop output for your site
 
-**New in v.2.0**
+**New in v2**
 
 * Create and save as many Isotope shortcodes as you want to use on multiple pages throughout your site
 * Paginate your loop of posts using infinite scrolling (rather than loading them all at once)
 * Now uses v2 of the javascript Isotope plugin
+* Plays nice with WordPress Multisite
+
+**Are you upgrading from v1.X?**
+
+If you're upgrading to v2+ of Isotope Posts from v1.X, you'll need to run the [Isotope Posts v2 Migrator plugin](https://github.com/mandiwise/isotope-posts-migrator) first. Be sure to deactivate and delete the migrator plugin before attempting to re-activate of Isotope Posts.
 
 *A word of caution...*
 
