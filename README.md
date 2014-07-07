@@ -74,6 +74,9 @@ Yes, but no translations are available quite yet.
 
 ## Changelog
 
+### 2.0.2
+* Fixed issue with settings array saving incorrectly when plugin options did not exist yet
+
 ### 2.0.1
 * Fixed fatal error on activation
 

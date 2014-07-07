@@ -18,7 +18,7 @@ class Isotope_Posts {
 	 *
 	 * @var     string
 	 */
-	const VERSION = '2.0.1';
+	const VERSION = '2.0.2';
 
 	/**
 	 * Unique identifier for the plugin.
@@ -207,7 +207,7 @@ class Isotope_Posts {
 	 * @since    2.0.0
 	 */
 	private static function single_activate() {
-		// @TODO: Define activation functionality here
+		add_option( 'isotope_options' );
 	}
 
 	/**
