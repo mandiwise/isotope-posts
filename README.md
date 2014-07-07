@@ -19,7 +19,7 @@ Some features:
 * Now uses v2 of the javascript Isotope plugin
 * Plays nice with WordPress Multisite
 
-**Are you upgrading from v1.X?**
+### Are you upgrading from v1.X?
 
 If you're upgrading to v2+ of Isotope Posts from v1.X, you'll need to run the [Isotope Posts v2 Migrator plugin](https://github.com/mandiwise/isotope-posts-migrator) first. Be sure to deactivate and delete the migrator plugin before attempting to re-activate of Isotope Posts.
 
