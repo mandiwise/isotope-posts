@@ -81,6 +81,7 @@ Yes, but no translations are available quite yet.
 
 ### 2.0.2
 * Fixed issue with settings array saving incorrectly when plugin options did not exist yet
+* Remove automatic activation for new blogs in multisite
 
 ### 2.0.1
 * Fixed fatal error on activation
