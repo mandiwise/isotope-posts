@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name.
+ * Isotope Posts.
  *
  * @package   Isotope_Posts
  * @author    Mandi Wise <hello@mandiwise.com>
@@ -18,7 +18,7 @@ class Isotope_Posts {
 	 *
 	 * @var     string
 	 */
-	const VERSION = '2.0.2';
+	const VERSION = '2.0.3';
 
 	/**
 	 * Unique identifier for the plugin.
@@ -49,9 +49,8 @@ class Isotope_Posts {
 		// Load plugin text domain
 		add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
 
-		// Load public-facing style sheet and JavaScript.
+		// Load public-facing stylesheet.
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
-		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 
       // Initiate the plugin settings class so we can use what's saved in those options.
       require_once( ISO_DIR . '/admin/views/settings.php' );
@@ -185,6 +184,7 @@ class Isotope_Posts {
 	 * @since    2.0.0
 	 */
 	private static function single_activate() {
+		// Option needs to be initially added here to fix a bug that should be patched in WP 4.0
 		add_option( 'isotope_options' );
 	}
 
@@ -218,19 +218,12 @@ class Isotope_Posts {
 	 * @since    2.0.0
 	 */
 	public function enqueue_styles() {
-		wp_enqueue_style( $this->plugin_slug . '-plugin-styles', plugins_url( 'assets/css/public.css', __FILE__ ), array(), self::VERSION );
-	}
 
-	/**
-	 * Register and enqueues public-facing JavaScript files.
-	 *
-	 * @since    2.0.0
-	 */
-	public function enqueue_scripts() {
-      wp_register_script( $this->plugin_slug . '-isotope-script', plugins_url( 'assets/js/isotope.pkgd.min.js', __FILE__ ), array(), '2.0.0' );
-      wp_register_script( $this->plugin_slug . '-imagesloaded-script', plugins_url( 'assets/js/imagesloaded.pkgd.min.js', __FILE__ ), array( 'jquery' ), '3.1.8' );
-      wp_register_script( $this->plugin_slug . '-infinitescroll-script', plugins_url( 'assets/js/jquery.infinitescroll.min.js', __FILE__ ), array( 'jquery' ), '2.0.2' );
-		wp_register_script( $this->plugin_slug . '-plugin-script', plugins_url( 'assets/js/public.js', __FILE__ ), array( 'jquery' ), self::VERSION );
+		global $post;
+
+		if ( is_a( $post, 'WP_Post' ) && has_shortcode( $post->post_content, 'isotope-posts') ) {
+			wp_enqueue_style( $this->plugin_slug . '-plugin-styles', plugins_url( 'assets/css/public.css', __FILE__ ), array(), self::VERSION );
+		}
 	}
 
 	/**
@@ -277,11 +270,12 @@ class Isotope_Posts {
       $page_url = get_permalink();
 
       // Enqueue and localize the Isotope scripts
-      wp_enqueue_script( 'jquery' );
-		wp_enqueue_script( $this->plugin_slug . '-isotope-script' );
-      wp_enqueue_script( $this->plugin_slug . '-imagesloaded-script' );
-      wp_enqueue_script( $this->plugin_slug . '-infinitescroll-script' );
-		wp_enqueue_script( $this->plugin_slug . '-plugin-script' );
+		wp_enqueue_script( 'jquery' );
+		wp_enqueue_script( $this->plugin_slug . '-isotope-script', plugins_url( 'assets/js/isotope.pkgd.min.js', __FILE__ ), array(), '2.0.0' );
+		wp_enqueue_script( $this->plugin_slug . '-imagesloaded-script', plugins_url( 'assets/js/imagesloaded.pkgd.min.js', __FILE__ ), array( 'jquery' ), '3.1.8' );
+		wp_enqueue_script( $this->plugin_slug . '-infinitescroll-script', plugins_url( 'assets/js/jquery.infinitescroll.min.js', __FILE__ ), array( 'jquery' ), '2.0.2' );
+		wp_enqueue_script( $this->plugin_slug . '-plugin-script', plugins_url( 'assets/js/public.js', __FILE__ ), array( 'jquery' ), self::VERSION );
+
 		wp_localize_script( $this->plugin_slug . '-plugin-script', 'iso_vars', array(
             'loader_gif' => plugins_url( 'public/assets/images/ajax-loader.gif' , dirname(__FILE__) ),
             'finished_message' => $finished_message,
