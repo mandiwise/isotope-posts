@@ -69,6 +69,7 @@
 #filters li a {
 	text-decoration: none;
 	padding: 0.5em 1em;
+   display: block;
 }
 
 .iso-container {
@@ -82,12 +83,8 @@
 
 #iso-loop li {
 	margin: 0;
-	padding: 0 15px;
+	padding: 0 1em;
 	max-width: 290px;
-}
-
-h2.iso-title {
-	margin-bottom: 0.5em !important;
 }
 
 h2.iso-title a {

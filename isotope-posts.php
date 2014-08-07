@@ -12,7 +12,7 @@
  * Plugin Name:       Isotope Posts
  * Plugin URI:        http://mandiwise.com/wordpress/isotope-posts/
  * Description:       Allows you to use Metafizzy's Isotope to display feeds of WordPress posts using simple shortcodes. Works with custom post types and custom taxonomies too.
- * Version:           2.0.3
+ * Version:           2.0.4
  * Author:            Mandi Wise
  * Author URI:        http://mandiwise.com
  * Text Domain:       isotope-posts

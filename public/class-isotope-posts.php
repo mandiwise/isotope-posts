@@ -18,7 +18,7 @@ class Isotope_Posts {
 	 *
 	 * @var     string
 	 */
-	const VERSION = '2.0.3';
+	const VERSION = '2.0.4';
 
 	/**
 	 * Unique identifier for the plugin.
@@ -219,10 +219,12 @@ class Isotope_Posts {
 	 */
 	public function enqueue_styles() {
 
+		wp_register_style( $this->plugin_slug . '-plugin-styles', plugins_url( 'assets/css/public.css', __FILE__ ), array(), self::VERSION );
+
 		global $post;
 
 		if ( is_a( $post, 'WP_Post' ) && has_shortcode( $post->post_content, 'isotope-posts') ) {
-			wp_enqueue_style( $this->plugin_slug . '-plugin-styles', plugins_url( 'assets/css/public.css', __FILE__ ), array(), self::VERSION );
+			wp_enqueue_style( $this->plugin_slug . '-plugin-styles' );
 		}
 	}
 
@@ -235,6 +237,7 @@ class Isotope_Posts {
 
       extract( shortcode_atts( array(
          'id' => '',
+			'load_css' => 'false',
       ), $atts ) );
 
       /*
@@ -269,7 +272,11 @@ class Isotope_Posts {
       // Get the current page url.
       $page_url = get_permalink();
 
-      // Enqueue and localize the Isotope scripts
+      // Enqueue and localize the Isotope styles and scripts
+		if ( $load_css == 'true' ) {
+			wp_enqueue_style( $this->plugin_slug . '-plugin-styles' );
+		}
+
 		wp_enqueue_script( 'jquery' );
 		wp_enqueue_script( $this->plugin_slug . '-isotope-script', plugins_url( 'assets/js/isotope.pkgd.min.js', __FILE__ ), array(), '2.0.0' );
 		wp_enqueue_script( $this->plugin_slug . '-imagesloaded-script', plugins_url( 'assets/js/imagesloaded.pkgd.min.js', __FILE__ ), array( 'jquery' ), '3.1.8' );

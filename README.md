@@ -44,6 +44,18 @@ Metafizzy's javascript Isotope plugin is licensed under MIT and free to use for 
 
 To implement Isotope Posts on your site, simply head over to the Isotope Posts settings page in your WordPress admin area, create a loop of posts with your preferred options and then save it. Next, grab the unique shortcode for the loop you just saved (e.g. `[isotope-posts id="YOUR_UNIQUE_ID"]`) and embed it in a page in your site.
 
+### How do I make this thing work in a template file?
+
+You can use `do_shortcode` to directly embed an Isotope Posts loop in a template file (instead of pasting it into the WYSIWYG editor for a given page on your site).
+
+However, in order to ensure that the Isotope Posts plugin has the smallest possible footprint on your site, the plugin only loads the required Isotope CSS file on pages where it finds an Isotope Posts shortcode inside `the_content` (i.e. embedded in the WYSIWYG editor).
+
+In order to manually add the required CSS when you use `do_shortcode` within your theme files, set an additional attribute on your shortcode as follows:
+
+`[isotope-posts id="YOUR_UNIQUE_ID" load_css="true"]`
+
+**NOTE:** You do NOT need to add the `load_css` attribute to your shortcode if you are simply pasting it into a page's WYSIWYG editor.
+
 ### What kind of Isotope options are available?
 
 Isotope Posts takes advantage of a number of the original javascript plugins's options. On the plugin settings page you have the option to:
@@ -78,6 +90,9 @@ Yes, but no translations are available quite yet.
 3. Sample of featured image and excerpt output
 
 ## Changelog
+
+### 2.0.4
+* Add ability to manually load public CSS when using `do_shortcode`
 
 ### 2.0.3
 * Ensure scripts and styles only load when the shortcode is present (for real this time...)
