@@ -93,6 +93,7 @@ Yes, but no translations are available quite yet.
 
 ### 2.0.4
 * Add ability to manually load public CSS when using `do_shortcode`
+* Improve responsiveness of public CSS
 
 ### 2.0.3
 * Ensure scripts and styles only load when the shortcode is present (for real this time...)

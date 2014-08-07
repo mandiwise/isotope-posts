@@ -58,17 +58,18 @@
 
 #filters {
 	list-style: none;
+   margin: 0 0 1em 0;
 }
 
 #filters li {
 	float: left;
 	border: 1px solid #ededed;
-	margin: 0 0.5em 1em 0;
+	margin: 0 .5em 1em 0;
 }
 
 #filters li a {
 	text-decoration: none;
-	padding: 0.5em 1em;
+	padding: .5em 1em;
    display: block;
 }
 
@@ -79,12 +80,15 @@
 #iso-loop {
    display: none;
    list-style: none;
+   margin: 0;
 }
 
 #iso-loop li {
-	margin: 0;
-	padding: 0 1em;
-	max-width: 290px;
+   width: 30.5%;
+   margin: 0 2.5% 2.5% 0;
+   -webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 h2.iso-title a {
@@ -92,9 +96,8 @@ h2.iso-title a {
 }
 
 .iso-thumb {
-	width: inherit;
-	padding: 0.5em 0;
-	margin-bottom: 0.5em;
+	width: auto;
+	margin-bottom: .5em;
 }
 
 .iso-thumb img {
