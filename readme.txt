@@ -1,8 +1,8 @@
 === Isotope Posts ===
 Contributors: mandiwise
-Tags: isotope, jquery, posts
+Tags: isotope, javascript, posts
 Requires at least: 3.5.1
-Tested up to: 3.9.1
+Tested up to: 3.9.2
 Stable tag: 2.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -97,6 +97,9 @@ Yes, but no translations are available quite yet.
 3. Sample of featured image and excerpt output
 
 == Changelog ==
+
+= 2.0.5 =
+* Add check on post elements when a filter menu has been added but the post doesn't have any taxonomy terms assigned (props [@crondeau](https://github.com/crondeau)).
 
 = 2.0.4 =
 * Add ability to manually load public CSS when using `do_shortcode`

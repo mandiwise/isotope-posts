@@ -18,7 +18,7 @@ class Isotope_Posts {
 	 *
 	 * @var     string
 	 */
-	const VERSION = '2.0.4';
+	const VERSION = '2.0.5';
 
 	/**
 	 * Unique identifier for the plugin.
@@ -375,9 +375,12 @@ class Isotope_Posts {
    			<ul id="iso-loop">
    			<?php while ( $isoposts->have_posts() ) : $isoposts->the_post(); ?>
    				<li class="<?php if ( $filter_menu == 'yes' && taxonomy_exists( $filter_by ) ) {
-                  foreach( get_the_terms( $isoposts->post->ID, $filter_by ) as $term ) {
-                     echo $term->slug.' ';
-                  }
+						$terms = get_the_terms( $isoposts->post->ID, $filter_by );
+						if ( ! empty( $terms ) ) {
+	                  foreach( $terms as $term ) {
+	                     echo $term->slug.' ';
+	                  }
+						}
                } ?>iso-post">
    					<h2 class="iso-title"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
    					<?php
