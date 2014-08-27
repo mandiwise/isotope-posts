@@ -29,7 +29,11 @@
 				nextSelector : ".more-iso-posts a",
 				itemSelector : ".iso-post",
 				path : function generatePageUrl(currentPageNumber) {
-					return (iso_vars.page_url + currentPageNumber + "/");
+					if ( $('body').hasClass('home') ) {
+						return (iso_vars.page_url + 'page/' + currentPageNumber + "/");
+					} else {
+						return (iso_vars.page_url + currentPageNumber + "/");
+					}
 				},
 			},
 				function ( newElements ) {

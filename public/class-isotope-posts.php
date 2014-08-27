@@ -18,7 +18,7 @@ class Isotope_Posts {
 	 *
 	 * @var     string
 	 */
-	const VERSION = '2.0.5';
+	const VERSION = '2.0.6';
 
 	/**
 	 * Unique identifier for the plugin.

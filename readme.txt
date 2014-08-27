@@ -98,8 +98,11 @@ Yes, but no translations are available quite yet.
 
 == Changelog ==
 
+= 2.0.6 =
+* Fix pagination bug when implementing a loop on a static homepage
+
 = 2.0.5 =
-* Add check on post elements when a filter menu has been added but the post doesn't have any taxonomy terms assigned (props [@crondeau](https://github.com/crondeau)).
+* Add check on post elements when a filter menu has been added but the post doesn't have any taxonomy terms assigned (props [@crondeau](https://github.com/crondeau))
 
 = 2.0.4 =
 * Add ability to manually load public CSS when using `do_shortcode`
