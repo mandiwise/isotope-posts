@@ -91,6 +91,11 @@ Yes, but no translations are available quite yet.
 
 ## Changelog
 
+### 2.0.7
+* Adjust pre-filling behaviour when using filtering and infinite scrolling together (even though this is not advisable) to address JS errors
+* Remove old Isotope js file
+* Update Isotope library to 2.0.1
+
 ### 2.0.6
 * Fix pagination bug when implementing a loop on a static homepage
 

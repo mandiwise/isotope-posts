@@ -16,7 +16,7 @@
 		});
 
 		// Initialize infinite scroll if required
-		if( iso_vars.iso_paginate == 'yes' ){
+		if ( iso_vars.iso_paginate == 'yes' ){
 			$container.infinitescroll({
 				loading: {
 					finishedMsg : iso_vars.finished_message,
@@ -25,6 +25,7 @@
 					selector : ".iso-posts-loading",
 					speed: 0,
 				},
+				binder : $(window),
 				navSelector  : ".iso-pagination",
 				nextSelector : ".more-iso-posts a",
 				itemSelector : ".iso-post",
@@ -35,6 +36,7 @@
 						return (iso_vars.page_url + currentPageNumber + "/");
 					}
 				},
+				prefill : true
 			},
 				function ( newElements ) {
 					var $newElems = $( newElements ).hide();
@@ -46,13 +48,11 @@
 			);
 		}
 
-		// Create a helper function to check if posts should be added after filtering
-		var needPostsCheck = function(){
-			if( iso_vars.iso_paginate == 'yes' ){
-				$container.infinitescroll('update', { prefill : true } );
-
+		// Create helper function to check if posts should be added after filtering
+		function needPostsCheck(){
+			if ( iso_vars.iso_paginate == 'yes' ) {
 				if( ( $container.height() < $(window).height() ) || ( $container.children(':visible').length == 0 ) ){
-					$container.infinitescroll('scroll');
+					$container.infinitescroll('retrieve');
 				}
 			} else {
 				return false;
@@ -60,8 +60,8 @@
 		}
 
 		// Check if posts are needed for filtered pages when they load
-		$(window).load(function(){
-			if( location.hash ) {
+		$container.imagesLoaded(function(){
+			if ( window.location.hash ) {
 				needPostsCheck();
 			}
 		});

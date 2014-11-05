@@ -2,8 +2,8 @@
 Contributors: mandiwise
 Tags: isotope, javascript, posts
 Requires at least: 3.5.1
-Tested up to: 3.9.2
-Stable tag: 2.0.2
+Tested up to: 4.0
+Stable tag: 2.0.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -97,6 +97,11 @@ Yes, but no translations are available quite yet.
 3. Sample of featured image and excerpt output
 
 == Changelog ==
+
+= 2.0.7 =
+* Adjust pre-filling behaviour when using filtering and infinite scrolling together (even though this is not advisable) to address JS errors
+* Remove old Isotope js file
+* Update Isotope library to 2.0.1
 
 = 2.0.6 =
 * Fix pagination bug when implementing a loop on a static homepage
