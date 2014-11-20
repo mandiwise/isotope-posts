@@ -23,10 +23,6 @@ Some features:
 
 If you're upgrading to v2+ of Isotope Posts from v1.X, you'll need to run the [Isotope Posts v2 Migrator plugin](https://github.com/mandiwise/isotope-posts-migrator) first. Be sure to deactivate and delete the migrator plugin before attempting to re-activate of Isotope Posts.
 
-*A word of caution...*
-
-This is a soft-launch of v2 of the Isotope Posts plugin. There may still be a few kinks to work out, so please report all bugs in the [Issues](https://github.com/mandiwise/isotope-posts/issues) section of the repo.
-
 ### A note re: licensing
 
 Metafizzy's javascript Isotope plugin is licensed under MIT and free to use for non-commercial, personal, open-source projects only. Find out more about [commercial licensing](http://isotope.metafizzy.co/license.html) if you plan on using this plugin for commercial purposes.
@@ -90,6 +86,9 @@ Yes, but no translations are available quite yet.
 3. Sample of featured image and excerpt output
 
 ## Changelog
+
+### 2.0.8
+* Fix filter menu so that it doesn't show excluded terms when the filter menu taxonomy is the same as the limiting taxonomy (again)
 
 ### 2.0.7
 * Adjust pre-filling behaviour when using filtering and infinite scrolling together (even though this is not advisable) to address JS errors

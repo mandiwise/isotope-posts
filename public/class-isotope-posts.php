@@ -18,7 +18,7 @@ class Isotope_Posts {
 	 *
 	 * @var     string
 	 */
-	const VERSION = '2.0.7';
+	const VERSION = '2.0.8';
 
 	/**
 	 * Unique identifier for the plugin.
@@ -338,15 +338,14 @@ class Isotope_Posts {
 
 			// If the menu taxonomy is the same as the limiting taxonomy, the convert the limited term slugs into IDs.
 			if ( $filter_by == $limit_by ) {
-				global $wpdb;
 				$limited_terms = explode( ',', $limit_term );
 				$excluded_ids = array();
 
-            foreach( $limited_terms as $limitedterm ) {
-					$term_id = $wpdb->get_var( "SELECT term_id FROM $wpdb->terms WHERE slug='$limitedterm'" );
+            foreach( $limited_terms as $term ) {
+					$term_id = get_term_by( 'slug', $term, $limit_by )->term_id;
 					$excluded_ids[] = $term_id;
 				}
-				$id_string = implode( ' ', $excluded_ids );
+				$id_string = implode( ',', $excluded_ids );
 
 			} else {
 				$id_string = '';
