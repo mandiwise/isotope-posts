@@ -7,7 +7,7 @@
 		var initialFilter = window.location.hash && ( '.' + window.location.hash.substr(1) ) || '*';
 
 		// Initialize Isotope
-		var $container = $('#iso-loop').imagesLoaded( function(){
+		var $container = $('#iso-loop').imagesLoaded( function () {
 			$container.fadeIn().isotope({
 				itemSelector : '.iso-post',
 				layoutMode : iso_vars.iso_layout,
@@ -19,17 +19,17 @@
 		if ( iso_vars.iso_paginate == 'yes' ){
 			$container.infinitescroll({
 				loading: {
-					finishedMsg : iso_vars.finished_message,
-					img : iso_vars.loader_gif,
-					msgText : "",
-					selector : ".iso-posts-loading",
+					finishedMsg: iso_vars.finished_message,
+					img: iso_vars.loader_gif,
+					msgText: "",
+					selector: ".iso-posts-loading",
 					speed: 0,
 				},
-				binder : $(window),
-				navSelector  : ".iso-pagination",
-				nextSelector : ".more-iso-posts a",
-				itemSelector : ".iso-post",
-				path : function generatePageUrl(currentPageNumber) {
+				binder: $(window),
+				navSelector: ".iso-pagination",
+				nextSelector: ".more-iso-posts a",
+				itemSelector: ".iso-post",
+				path: function generatePageUrl(currentPageNumber) {
 					if ( $('body').hasClass('home') ) {
 						return (iso_vars.page_url + 'page/' + currentPageNumber + "/");
 					} else {
@@ -40,7 +40,7 @@
 			},
 				function ( newElements ) {
 					var $newElems = $( newElements ).hide();
-					$newElems.imagesLoaded(function(){
+					$newElems.imagesLoaded(function () {
 						$newElems.fadeIn();
 						$container.isotope( 'appended', $newElems );
 					});
@@ -49,9 +49,9 @@
 		}
 
 		// Create helper function to check if posts should be added after filtering
-		function needPostsCheck(){
+		function needPostsCheck() {
 			if ( iso_vars.iso_paginate == 'yes' ) {
-				if( ( $container.height() < $(window).height() ) || ( $container.children(':visible').length == 0 ) ){
+				if ( ( $container.height() < $(window).height() ) || ( $container.children(':visible').length == 0 ) ){
 					$container.infinitescroll('retrieve');
 				}
 			} else {
@@ -60,24 +60,21 @@
 		}
 
 		// Check if posts are needed for filtered pages when they load
-		$container.imagesLoaded(function(){
+		$container.imagesLoaded(function () {
 			if ( window.location.hash ) {
 				needPostsCheck();
 			}
 		});
 
 		// Set up the click event for filtering
-		$('#filters a').click(function(){
-			var selector = $(this).attr('data-filter');
-			var niceSelector = selector.substr(1);
-			location.hash = niceSelector;
-			return false;
-		});
+		$('#filters').on('click', 'a', function ( event ) {
+			event.preventDefault();
 
-		// Filter on hashchange and check if posts are needed
-		$(window).bind('hashchange', function(){
-			var hashFilter = location.hash && ( '.' + location.hash.substr(1) ) || '*';
-			$container.isotope({ filter : hashFilter });
+			var selector = $(this).attr('data-filter'),
+			    niceSelector = selector.substr(1);
+
+			history.pushState ? history.pushState( null, null, '#' + niceSelector ) : location.hash = niceSelector;
+			$container.isotope({ filter: selector });
 			needPostsCheck();
 		});
 

@@ -87,6 +87,9 @@ Yes, but no translations are available quite yet.
 
 ## Changelog
 
+### 2.0.9
+* Fix bug where clicking the "See All" filter would jump the browser to the top of the page.
+
 ### 2.0.8
 * Fix filter menu so that it doesn't show excluded terms when the filter menu taxonomy is the same as the limiting taxonomy (again)
 

@@ -2,8 +2,8 @@
 Contributors: mandiwise
 Tags: isotope, javascript, posts
 Requires at least: 3.5.1
-Tested up to: 4.0
-Stable tag: 2.0.8
+Tested up to: 4.1
+Stable tag: 2.0.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -93,6 +93,9 @@ Yes, but no translations are available quite yet.
 3. Sample of featured image and excerpt output
 
 == Changelog ==
+
+= 2.0.9 =
+* Fix bug where clicking the "See All" filter would jump the browser to the top of the page.
 
 = 2.0.8 =
 * Fix filter menu so that it doesn't show excluded terms when the filter menu taxonomy is the same as the limiting taxonomy (again)
