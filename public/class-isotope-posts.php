@@ -18,7 +18,7 @@ class Isotope_Posts {
 	 *
 	 * @var     string
 	 */
-	const VERSION = '2.0.9';
+	const VERSION = '2.1';
 
 	/**
 	 * Unique identifier for the plugin.
@@ -246,6 +246,7 @@ class Isotope_Posts {
 
       // Get Isotope opptions by loop id.
       $loop_id = isotope_option( $id );
+		$shortcode_id = $loop_id['shortcode_id'];
 
       // Set the post type to display with Isotope.
       $post_type = $loop_id['post_type'];
@@ -381,7 +382,15 @@ class Isotope_Posts {
 	                  }
 						}
                } ?>iso-post">
+						<?php
+							do_action( "before_isotope_title" );
+							do_action( "before_isotope_title_{$shortcode_id}" );
+						?>
    					<h2 class="iso-title"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
+						<?php
+							do_action( "before_isotope_content" );
+							do_action( "before_isotope_content_{$shortcode_id}" );
+						?>
    					<?php
    						if ( '' != get_the_post_thumbnail() ) { ?>
    							<div class="iso-thumb">
@@ -390,6 +399,10 @@ class Isotope_Posts {
    						<?php }
    					?>
    					<?php the_excerpt(); ?>
+						<?php
+							do_action( "after_isotope_content" );
+							do_action( "after_isotope_content_{$shortcode_id}" );
+						?>
    				</li>
    			<?php endwhile; ?>
    			</ul>

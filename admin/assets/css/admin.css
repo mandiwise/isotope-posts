@@ -1,0 +1,20 @@
+/* This stylesheet is used to style the admin components of the plugin. */
+
+/* Thickbox customizations */
+
+#TB_window {
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    height: 80%;
+    max-height: 550px !important;
+    max-width: 95% !important;
+    margin: 0 !important;
+    overflow: scroll;
+}
+
+#TB_ajaxContent {
+   max-width: 95% !important;
+}

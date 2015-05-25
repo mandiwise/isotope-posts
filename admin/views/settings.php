@@ -33,7 +33,7 @@ if ( !class_exists( 'Isotope_Posts_Settings' ) ) {
 			$this->sections['loop_options'] = __( 'Isotope Display Options', $this->plugin_slug );
 
 			// Register the settings
-			add_action( 'admin_init', array( &$this, 'admin_init' ) );
+			add_action( 'admin_init', array( $this, 'admin_init' ) );
 
 		}
 
@@ -168,7 +168,7 @@ if ( !class_exists( 'Isotope_Posts_Settings' ) ) {
 
 			// Create the array of post types
 			$post_types = get_post_types( $args, $output, $operator );
-			$builtin_post = array( 'post' => 'Posts' );
+			$builtin_post = array( 'post' => __( 'Posts', $this->plugin_slug ) );
 			$cpt_array = array();
 
 			foreach ( $post_types as $post_type ) {
@@ -180,8 +180,8 @@ if ( !class_exists( 'Isotope_Posts_Settings' ) ) {
 			$taxonomies = get_taxonomies( $args, $output, $operator );
 			$builtin_tax = array(
             '' => '-- Select a taxonomy --',
-            'category' => 'Post Categories',
-            'post_tag' => 'Post Tags'
+            'category' => __( 'Post Categories', $this->plugin_slug ),
+            'post_tag' => __( 'Post Tags', $this->plugin_slug )
          );
 			$ctax_array = array();
 
@@ -334,13 +334,13 @@ if ( !class_exists( 'Isotope_Posts_Settings' ) ) {
 
 		public function admin_init() {
 
-         register_setting( 'isotope_options', 'isotope_options', array( &$this, 'validate_settings' ) );
+         register_setting( 'isotope_options', 'isotope_options', array( $this, 'validate_settings' ) );
 
 			foreach ( $this->sections as $slug => $title ) {
 				if ( $slug == 'loop_options' ) {
-					add_settings_section( $slug, $title, array( &$this, 'display_loop_options_section' ), 'isotope-options' );
+					add_settings_section( $slug, $title, array( $this, 'display_loop_options_section' ), 'isotope-options' );
 				} else {
-					add_settings_section( $slug, $title, array( &$this, 'display_section' ), 'isotope-options' );
+					add_settings_section( $slug, $title, array( $this, 'display_section' ), 'isotope-options' );
 				}
 			}
 

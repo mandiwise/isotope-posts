@@ -2,8 +2,8 @@
 Contributors: mandiwise
 Tags: isotope, javascript, posts
 Requires at least: 3.5.1
-Tested up to: 4.1
-Stable tag: 2.0.9
+Tested up to: 4.2.2
+Stable tag: 2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -93,6 +93,11 @@ Yes, but no translations are available quite yet.
 3. Sample of featured image and excerpt output
 
 == Changelog ==
+
+= 2.1 =
+* Add `before_isotope_title`, `before_isotope_content`, and `after_isotope_content` action hooks to allow customization of Isotope item content.
+* Improve responsiveness of admin settings lightbox.
+* Localize additional strings.
 
 = 2.0.9 =
 * Fix bug where clicking the "See All" filter would jump the browser to the top of the page.

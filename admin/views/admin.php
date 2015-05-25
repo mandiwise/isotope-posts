@@ -21,7 +21,7 @@
 
    <div id="isotope-loops">
 
-      <h3>Isotope Post Shortcodes</h3>
+      <h3><?php _e( 'Isotope Post Shortcodes', $this->plugin_slug ); ?></h3>
 
       <?php if ( $isotope_loops ) : ?>
 

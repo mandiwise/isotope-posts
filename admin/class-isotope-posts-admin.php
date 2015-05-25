@@ -89,6 +89,7 @@ class Isotope_Posts_Admin {
 		$screen = get_current_screen();
 		if ( $this->plugin_screen_hook_suffix == $screen->id ) {
          wp_enqueue_style( 'thickbox' );
+			wp_enqueue_style( $this->plugin_slug . '-admin-styles', plugins_url( 'assets/css/admin.css', __FILE__ ), array(), Isotope_Posts::VERSION );
 		}
 
 	}
@@ -142,7 +143,7 @@ class Isotope_Posts_Admin {
 	public function display_plugin_admin_page() {
 
 		if ( ! current_user_can( 'manage_options' ) ) {
-			wp_die(__( 'Sorry! You don\'t have sufficient permissions to access this page.', $this->plugin_slug ));
+			wp_die( __( 'Sorry! You don\'t have sufficient permissions to access this page.', $this->plugin_slug ) );
 		}
 
 		include_once( 'views/admin.php' );
@@ -181,7 +182,7 @@ class Isotope_Posts_Admin {
       // Check for the loop ID in the plugin options (deletion occurs in validation callback)
       if ( $loop_id && $isotope_loops && array_key_exists( $loop_id, $isotope_loops ) ) {
          update_option( 'isotope_options', $isotope_loops );
-   		echo 'Success! This shortcode has been deleted.';
+			_e( 'Success! This shortcode has been deleted.', $this->plugin_slug );
    	}
    	die();
 

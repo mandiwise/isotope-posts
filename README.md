@@ -87,6 +87,11 @@ Yes, but no translations are available quite yet.
 
 ## Changelog
 
+### 2.1
+* Add `before_isotope_title`, `before_isotope_content`, and `after_isotope_content` action hooks to allow customization of Isotope item content.
+* Improve responsiveness of admin settings lightbox.
+* Localize additional strings.
+
 ### 2.0.9
 * Fix bug where clicking the "See All" filter would jump the browser to the top of the page.
 
